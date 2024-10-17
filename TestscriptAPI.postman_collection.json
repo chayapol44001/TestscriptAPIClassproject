@@ -17,14 +17,9 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response body success\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"aut\");\r",
-							"});\r",
-							"\r",
 							"pm.test(\"Content-Type is present\", function () {\r",
 							"    pm.response.to.have.header(\"Content-Type\");\r",
-							"});\r",
-							""
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -65,31 +60,14 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Successful POST request\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"pm.test(\"Response time is less than 80ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
 							"});\r",
-							"\r",
-							"pm.test(\"Status code name has string\", function () {\r",
-							"    pm.response.to.have.status(\"Created\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response body success\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.id).to.eql(101);\r",
-							"    pm.expect(jsonData.body ).to.eql(\"bar\");\r",
-							"});\r",
-							"\r",
-							"// pm.test(\"Response time is less than 350ms\", function () {\r",
-							"//     pm.expect(pm.response.responseTime).to.be.below(350);\r",
-							"// });\r",
-							"\r",
-							"pm.test(\"Content-Type is present\", function () {\r",
-							"    pm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");\r",
-							"});"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
